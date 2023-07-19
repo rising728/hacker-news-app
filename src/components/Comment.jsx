@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { Parser } from "html-to-react";
 import { getStory } from "../utils/apis";
+import DateTime from "./DateTime";
 
 const Comment = ({ id, level = 0 }) => {
   const [comment, setComment] = useState(null);
@@ -37,22 +38,45 @@ const Comment = ({ id, level = 0 }) => {
   }
 
   return (
-    <div style={{ marginLeft: `${comment.level * 20}px` }}>
-      <div>{Parser().parse(comment.text)}</div>
-      {comment.kids && (
-        <button onClick={handleShowReplies}>
-          {isLoadingReplies
-            ? "Loading replies..."
-            : showReplies
-            ? "Hide replies"
-            : `Show replies`}
-        </button>
-      )}
-      {showReplies &&
-        comment.replies.map((reply) => (
-          <Comment key={reply.id} id={reply.id} level={reply.level} />
-        ))}
-    </div>
+    <>
+      <div style={{ marginLeft: `${comment.level * 20}px` }}>
+        <div className="relative grid grid-cols-1 gap-4 m-6 p-6 rounded-lg shadow-md">
+          <div className="flex flex-col w-full">
+            <div className="flex flex-row justify-between">
+              <p>
+                <a
+                  className="text-xl text-white"
+                  href={`https://news.ycombinator.com/user?id=${comment.by}`}
+                  target="_blank"
+                >
+                  {comment.by}
+                </a>
+                <span className="text-xs ml-2">
+                  <DateTime timestamp={comment.time} />
+                </span>
+              </p>
+            </div>
+          </div>
+          <p className="-mt-4 text-gray-300">{Parser().parse(comment.text)}</p>
+          {comment.kids && (
+            <button
+              className="btn btn-ghost border border-current shadow-lg"
+              onClick={handleShowReplies}
+            >
+              {isLoadingReplies
+                ? "Loading replies..."
+                : showReplies
+                ? "Hide replies"
+                : `Show replies`}
+            </button>
+          )}
+          {showReplies &&
+            comment.replies.map((reply) => (
+              <Comment key={reply.id} id={reply.id} level={reply.level} />
+            ))}
+        </div>
+      </div>
+    </>
   );
 };
 
