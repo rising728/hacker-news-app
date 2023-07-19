@@ -11,6 +11,7 @@ import NoMatch from "./pages/NoMatch";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Stories from "./pages/Stories";
+import StoryDetails from "./pages/StoryDetails";
 
 function App() {
   return (
@@ -23,10 +24,7 @@ function App() {
             <Route path="/top" element={<Stories type="top" />} />
             <Route path="/new" element={<Stories type="new" />} />
             <Route path="/best" element={<Stories type="best" />} />
-            <Route
-              path="/news/:id/comments"
-              element={<Stories type="best" />}
-            />
+            <Route path="/news/:id/comments" element={<StoryDetails />} />
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </div>
