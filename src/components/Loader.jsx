@@ -7,8 +7,8 @@ const Loader = ({ show, message = "Loading..." }) => {
 
   return (
     <>
-      <div className="flex items-center justify-center h-screen">
-        <div className="text-center">
+      <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-black bg-opacity-50 z-50">
+        <div className="text-center text-white">
           <div>{message}</div>
           <progress className="progress w-56"></progress>
         </div>
