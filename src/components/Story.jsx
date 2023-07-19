@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import DateTime from "./DateTime";
 
-const Story = ({ story }) => {
+const Story = ({ story, commentBtn = true }) => {
   const { id, by, title, descendants, kids, time, url } = story;
   const navigate = useNavigate();
 
@@ -43,29 +43,33 @@ const Story = ({ story }) => {
                 {`${descendants} comments`}
               </a>
             </span>
-            &nbsp;&nbsp;&nbsp;&nbsp;|
-            <button
-              type="button"
-              className="flex items-center text-sm text-gray-500 hover:underline dark:text-white"
-              onClick={showComments}
-            >
-              <svg
-                aria-hidden="true"
-                className="mr-1 w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
-                ></path>
-              </svg>
-              Show Comments
-            </button>
+            {commentBtn && descendants > 0 && (
+              <>
+                &nbsp;&nbsp;&nbsp;&nbsp;|
+                <button
+                  type="button"
+                  className="flex items-center text-sm text-gray-500 hover:underline dark:text-white"
+                  onClick={showComments}
+                >
+                  <svg
+                    aria-hidden="true"
+                    className="mr-1 w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+                    ></path>
+                  </svg>
+                  Show Comments
+                </button>
+              </>
+            )}
           </>
         ) : (
           <span>No comments.</span>
