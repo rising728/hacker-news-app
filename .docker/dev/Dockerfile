@@ -23,4 +23,4 @@ RUN chown -R node node_modules
 USER node
 
 # Expose port 5173 to the outside world
-EXPOSE 5173
+EXPOSE 8000
