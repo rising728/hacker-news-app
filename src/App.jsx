@@ -23,6 +23,10 @@ function App() {
             <Route path="/top" element={<Stories type="top" />} />
             <Route path="/new" element={<Stories type="new" />} />
             <Route path="/best" element={<Stories type="best" />} />
+            <Route
+              path="/news/:id/comments"
+              element={<Stories type="best" />}
+            />
             <Route path="*" element={<NoMatch />} />
           </Routes>
         </div>
