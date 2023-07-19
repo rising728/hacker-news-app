@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App flex flex-col min-h-screen justify-between">
       <Header />
-      <NoMatch />
+      <div>Home Page</div>
       <Footer />
     </div>
   );
