@@ -8,11 +8,11 @@ export const getStory = (id) => {
     });
 };
 
-export const getStories = (type) => {
+export const getStories = (type, storyCount = 10) => {
   return fetch(`${BASE_API_URL}/${type}stories.json`)
     .then((response) => response.json())
     .then((storyIds) => {
-      return Promise.all(storyIds.slice(0, 10).map(getStory));
+      return Promise.all(storyIds.slice(0, storyCount).map(getStory));
     })
     .catch((error) => {
       console.log("Error while getting list of stories.");
