@@ -2,6 +2,13 @@
 
 This project is a simplified web-based version of Hacker News that allows you to browse stories using a clean and user-friendly interface. It is built with Vite and React.
 
+## Prerequisites
+
+Before you begin, ensure you have installed the following software on your computer:
+
+- [Docker Desktop](https://www.docker.com/products/docker-desktop): This is necessary to build and run the application container.
+- [Git](https://git-scm.com/downloads): You will use Git to clone the repository.
+
 ## Installation
 
 To get started, follow the steps below:
