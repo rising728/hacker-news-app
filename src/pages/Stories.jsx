@@ -19,7 +19,7 @@ const renderStory = (story, index) => {
 };
 
 const Stories = ({ type }) => {
-  const { isLoading, stories } = useDataFetcher(type ? type : "top", 10);
+  const { isLoading, stories } = useDataFetcher(type ? type : "top", 20);
 
   if (isLoading) {
     return <Loader show={isLoading} />;
