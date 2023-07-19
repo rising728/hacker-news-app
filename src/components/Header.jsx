@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -6,13 +7,13 @@ const Header = () => {
       <nav>
         <ul className="flex space-x-4">
           <li>
-            <a href="#">Top Stories</a>
+            <Link to="/top">Top Stories</Link>
           </li>
           <li>
-            <a href="#">New Stories</a>
+            <Link to="/new">Latest Stories</Link>
           </li>
           <li>
-            <a href="#">Best Stories</a>
+            <Link to="/best">Best Stories</Link>
           </li>
         </ul>
       </nav>
