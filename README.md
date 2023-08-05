@@ -1,6 +1,6 @@
 # Hacker News Reader
 
-This project is a simplified web-based version of Hacker News that allows you to browse stories using a clean and user-friendly interface. It is built with Vite and React.
+This project is a simplified web-based version of Hacker News that allows you to browse stories using a clean and user-friendly interface. It is built with Vite and React. 123
 
 ## Prerequisites
 
